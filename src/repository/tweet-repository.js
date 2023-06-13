@@ -33,8 +33,8 @@ class TweetRepository {
 
   async delete() {
     try {
-      const tweet = await Tweet.findByIdAndRemove(id);
-      return tweet;
+      const response = await Tweet.findByIdAndRemove(id);
+      return response;
     } catch (error) {
       console.log(error);
     }
