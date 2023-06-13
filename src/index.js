@@ -1,8 +1,8 @@
-const express = require("express");
+import express from "express";
 
 const app = express();
 
-const connect = require("./config/database");
+import { connect } from "./config/database.js";
 
 app.listen(3000, async () => {
   console.log("Server started");
