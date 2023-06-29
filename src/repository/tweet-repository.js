@@ -5,7 +5,7 @@ class TweetRepository extends CrudRepository {
   constructor() {
     super(Tweet);
   }
-  
+
   async create(data) {
     try {
       const tweet = await Tweet.create(data);
@@ -19,7 +19,7 @@ class TweetRepository extends CrudRepository {
     try {
       // Comments is an array so we need to pass as path
       const tweet = await Tweet.findById(id)
-        .populate({ path: "comments" })
+        .populate({ path: "comments", populate: { path: "comments" } })
         .lean();
       return tweet;
     } catch (error) {
