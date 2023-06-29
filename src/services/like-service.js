@@ -29,7 +29,7 @@ class LikeService {
       // await exists.remove(); // deleting the like object
       var isAdded = false;
     } else {
-      const newLike = await this.likeRepository.create({
+      var newLike = await this.likeRepository.create({
         user: userId,
         onModel: modelType,
         likeable: modelId,
@@ -39,7 +39,7 @@ class LikeService {
 
       var isAdded = true;
     }
-    return isAdded;
+    return isAdded ? newLike : isAdded;
   }
 }
 
