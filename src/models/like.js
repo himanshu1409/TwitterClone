@@ -7,6 +7,7 @@ const likeSchema = new mongoose.Schema(
       required: true,
       enum: ["Tweet", "Comment"],
     },
+    // likeable stores modelId i.e tweet id if tweet is liked and comment id if comment is liked
     likeable: {
       type: mongoose.Schema.Types.ObjectId,
       required: true,

@@ -7,11 +7,11 @@ class TweetService {
   }
 
   async create(data) {
+    const tweet = await this.tweetRepository.create(data);
     const content = data.content;
     let tags = content.match(/#[a-zA-Z0-9_]+/g); // this regex extracts hashtags
+    if (tags == null) return tweet;
     tags = tags.map((tag) => tag.substring(1)).map((tag) => tag.toLowerCase());
-    // console.log(tags);
-    const tweet = await this.tweetRepository.create(data);
     // this will return an array of object with title of already present hashtags [{title:""},..]
     let alreadyPresentTags = await this.hashtagRepository.findByName(tags);
     // this will return an array containing just the titles of already present hashtags
