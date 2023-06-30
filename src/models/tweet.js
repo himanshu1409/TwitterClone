@@ -12,6 +12,7 @@ const tweetSchema = new mongoose.Schema(
     // userEmail: { type: String },
     comments: [{ type: mongoose.Schema.Types.ObjectId, ref: "Comment" }], // Storing comment id
     // hashtags: [{ type: mongoose.Schema.Types.ObjectId, ref: "Hashtag" }],
+    image: { type: String },
   },
   { timestamps: true }
 );
