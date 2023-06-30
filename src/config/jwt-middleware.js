@@ -10,10 +10,9 @@ const opts = {
 };
 
 export const passportAuth = (passport) => {
-  console.log("Inside passport");
   passport.use(
     new JwtStrategy(opts, async (jwt_payload, done) => {
-      console.log("Inside strategy", jwt_payload);
+      //   console.log("Inside strategy", jwt_payload);
       const user = await User.findById(jwt_payload.id);
       if (!user) {
         done(null, false);
