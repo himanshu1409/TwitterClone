@@ -12,6 +12,7 @@ export const createTweet = async (req, res) => {
         console.log(err);
         return res.status(500).json({ error: err });
       }
+      // singleUploader being a middleware embeds the req object with image
       console.log("Image url is", req.file);
       const payload = { ...req.body };
       payload.image = req.file.location;
